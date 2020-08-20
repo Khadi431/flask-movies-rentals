@@ -1,0 +1,63 @@
+{% extends 'base.html'%} {% block main %}
+
+<div class="rounded shadow p-3 mt-5">
+  <h3>Edit {{movie.title}}</h3>
+
+  <hr />
+
+  {% if msg %}
+  <p class="p-4 alert alert-info">
+    {{msg}}
+  </p>
+  {% endif %}
+
+  <form action="/edit/{{movie.title}}" method="post">
+    <label for="title">Movie Title</label>
+    <input
+      type="text"
+      value="{{movie.title}}"
+      name="title"
+      id="title"
+      class="form-control"
+    />
+
+    <label for="title">Release Year</label>
+    <input
+      type="text"
+      value="{{movie.year}}"
+      name="year"
+      id="year"
+      class="form-control"
+    />
+
+    <label for="title">Budget</label>
+    <input
+      type="text"
+      value="{{movie.budget}}"
+      name="budget"
+      id="budget"
+      class="form-control"
+    />
+
+    <label for="cast">Cast</label>
+    <input
+      type="text"
+      value="{{movie.cast}}"
+      name="cast"
+      id="cast"
+      class="form-control"
+      placeholder="who are the main cast. separate with a comma"
+    />
+    <button type="submit" value="Update" class="btn btn-sm btn-success mt-3">
+      <span class="fa fa-save"></span>
+      Update Movie
+    </button>
+
+    <a href="/" class="pl-3 btn btn-sm btn-primary mt-3">
+      <span class="fa fa-arrow-left"></span>
+      Go back
+    </a>
+  </form>
+</div>
+
+{% endblock %} @app.route
